@@ -49,6 +49,9 @@ class SLAEngine:
         r=self.evaluate(ticket.created_at,now,ticket.priority)
         ticket.sla_minutes=r["allowed_minutes"]; ticket.sla_elapsed_minutes=r["elapsed_minutes"]
         ticket.sla_warning=r["warning"]; ticket.sla_breached=r["breached"]
-        if ticket.sla_breached: ticket.status="sla_breached"
+        if ticket.sla_breached:
+            ticket.status="sla_breached"
+            ticket.escalated=True
+            ticket.escalation_reason=f"SLA breach: {ticket.sla_elapsed_minutes} working minutes consumed of {ticket.sla_minutes}"
         elif ticket.sla_warning and ticket.status=="open": ticket.status="sla_warning"
         return r
