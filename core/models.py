@@ -35,4 +35,4 @@ class Ticket:
     unrelated_ticket_ids:list[str]=field(default_factory=list)
     routed_team:str|None=None
     routed_agent:str|None=None
-    routing_reason:str|None=None
+    routing_reason:str|None=None\n    escalated:bool=False\n    escalation_reason:str|None=None
