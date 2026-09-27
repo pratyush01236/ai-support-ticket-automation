@@ -45,7 +45,6 @@ def build_missing_information_request(t):
       "issue":"Please describe the issue and the outcome you need.",
       "order_id_or_no_order_confirmation":"Please provide the order ID, or confirm this is not order-related.",
       "product_or_no_product_confirmation":"Which product/service is affected, or confirm that no specific product is involved.",
-      "evidence":"Please provide relevant evidence such as a screenshot, receipt, transaction reference, or photo.",
       "evidence":"Please provide relevant evidence such as a screenshot, receipt, transaction reference, or photo."
     }
     return "\n".join("- "+q[x] for x in t.missing_fields)
